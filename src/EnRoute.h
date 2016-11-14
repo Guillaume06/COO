@@ -1,0 +1,2 @@
+class EnRoute : class EtatRobot{
+};

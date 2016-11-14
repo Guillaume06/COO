@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: bin/Main.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o
-	$(LINK_CXX) bin/Main.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o -o $(EXE_NAME)
+Main: bin/Main.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
+	$(LINK_CXX) bin/Main.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o -o $(EXE_NAME)
 
 bin/Main.o: src/Main.cpp
 	$(CXX)  src/Main.cpp -o bin/Main.o
@@ -42,6 +42,9 @@ bin/AVideFacePlot.o: src/AVideFacePlot.cpp src/AVideFacePlot.h
 
 bin/EnCharge.o: src/EnCharge.cpp src/EnCharge.h
 	$(CXX)  src/EnCharge.cpp -o bin/EnCharge.o
+
+bin/AVide.o: src/AVide.cpp src/AVide.h
+	$(CXX)  src/AVide.cpp -o bin/AVide.o
 
 bin/EnChargeFacePlot.o: src/EnChargeFacePlot.cpp src/EnChargeFacePlot.h
 	$(CXX)  src/EnChargeFacePlot.cpp -o bin/EnChargeFacePlot.o
@@ -58,7 +61,8 @@ bin/Fige.o: src/Fige.cpp src/Fige.h
 bin/Robot.o: src/Robot.cpp src/Robot.h
 	$(CXX)  src/Robot.cpp -o bin/Robot.o
 
-
+bin/Objet.o: src/Objet.cpp src/Objet.h
+	$(CXX)  src/Objet.cpp -o bin/Objet.o
 
 
 # FOR TEMPLATE FILES

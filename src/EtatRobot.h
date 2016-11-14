@@ -1,0 +1,2 @@
+class EtatRobot : class Robot{
+};

@@ -1,0 +1,2 @@
+class Fige : class EtatRobot{
+};
