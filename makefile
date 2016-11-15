@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: bin/Main.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
-	$(LINK_CXX) bin/Main.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o -o $(EXE_NAME)
+Main: bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
+	$(LINK_CXX) bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o -o $(EXE_NAME)
 
 bin/Main.o: src/Main.cpp
 	$(CXX)  src/Main.cpp -o bin/Main.o
