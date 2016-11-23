@@ -26,10 +26,34 @@ EtatRobot* Robot::setSave(){
 void Robot::setObservateur(Observateur* obs){
 	observateur = obs; 
 }
-Observateur::Observateur(){
 
+void Robot::saisir(Objet obj){
+    try{
+        etat    = etat->saisir();
+        *o      = obj;
+        observateur->notify(this);
+    }catch(const std::exception& ex){
+        cout << "Action impossible dans cet état" << endl;
+    }
 }
 
-void Observateur::notify(Robot* r){
-	cout << r->getEtat()->getName() << endl;
+void Robot::fige(){
+    try{
+        EtatRobot* tmp = etat->fige();
+        save = etat;
+        etat = tmp;
+        observateur->notify(this);
+    }catch(const std::exception& ex){
+        cout << "Action impossible dans cet état" << endl;
+    }
+}
+
+void Robot::repartir(){
+    try{
+	    etat ->repartir();
+        *etat = *save;
+        observateur->notify(this);
+    }catch(const std::exception& ex){
+        cout << "Action impossible dans cet état" << endl;
+    }
 }
