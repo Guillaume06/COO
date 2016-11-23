@@ -1,6 +1,7 @@
 #ifndef FIGE_H
 #define FIGE_H
 #include "EtatRobot.h"
+#include <string>
 
 class Fige : public EtatRobot{
 	private :
@@ -11,6 +12,7 @@ class Fige : public EtatRobot{
 		static Fige& Instance();
         EtatRobot* saisir(){throw ("Action impossible dans cet état");};
         EtatRobot* fige(){throw ("Action impossible dans cet état");};
+        EtatRobot* repartir(){return nullptr;};
 };
 
 #endif

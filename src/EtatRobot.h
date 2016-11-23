@@ -11,6 +11,7 @@ class EtatRobot {
         EtatRobot();
         virtual EtatRobot* saisir()=0;
         virtual EtatRobot* fige()=0;
+        virtual EtatRobot* repartir()=0;
         string getName();
 };
 

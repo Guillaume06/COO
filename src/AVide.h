@@ -12,6 +12,7 @@ class AVide : public EtatRobot{
 		static AVide& Instance();
         EtatRobot* saisir(){return nullptr;};
         EtatRobot* fige(){return nullptr;};
+        EtatRobot* repartir(){throw ("Action impossible dans cet état");};
 };
 
 #endif

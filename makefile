@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
-	$(LINK_CXX) bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o -o $(EXE_NAME)
+Main: bin/Observateur.o bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
+	$(LINK_CXX) bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o bin/Observateur.o -o $(EXE_NAME)
 
 bin/Main.o: src/Main.cpp
 	$(CXX)  src/Main.cpp -o bin/Main.o
@@ -64,6 +64,9 @@ bin/Robot.o: src/Robot.cpp src/Robot.h
 bin/Objet.o: src/Objet.cpp src/Objet.h
 	$(CXX)  src/Objet.cpp -o bin/Objet.o
 
+bin/Observateur.o: src/Observateur.cpp src/Observateur.h
+	$(CXX)  src/Observateur.cpp -o bin/Observateur.o
+
 
 # FOR TEMPLATE FILES
 #we do not make separate compilation of the templated entities
@@ -76,7 +79,7 @@ bin/Objet.o: src/Objet.cpp src/Objet.h
 # Note that in the Makefile shown above, the .h files are listed, but there are no references in their corresponding commands. This is because the .h files are referred within the corresponding .c files through the #include "file.h". If you do not explicitly include these in your Makefile, your program will not be updated if you make a change to your header (.h) files.
 
 clean:
-	-rm -f *.o a.out *.ps \#* *~
+	-rm -f bin/*.o bin/COO *.ps \#* *~
 	-rm -f *.stackdump core
 	-rm -f $(EXE_NAME)
 	-make extra_clean

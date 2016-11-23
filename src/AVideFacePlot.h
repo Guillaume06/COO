@@ -13,6 +13,7 @@ class AVideFacePlot : public EtatRobot{
         static AVideFacePlot& Instance();
         EtatRobot* saisir(){return &EnChargeFacePlot::Instance();};
         EtatRobot* fige(){return &Fige::Instance();};
+        EtatRobot* repartir(){throw ("Action impossible dans cet état");};
 
 };
 

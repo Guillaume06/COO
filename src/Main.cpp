@@ -1,20 +1,23 @@
 #include "Robot.h"
 #include "EtatRobot.h"
 #include "AVideFacePlot.h"
+#include "Observateur.h"
 #include <iostream>
 using namespace std;
 
 int main(){
-    Robot r = Robot();
+	Observateur obs = Observateur();
+    Robot r = Robot(&obs);
     Objet o = Objet();
     AVideFacePlot e = AVideFacePlot();
-    cout << r.getEtat()->getName() << endl;
 
     r.setEtat(&e);
     r.saisir(o);
 
-    cout << r.getEtat()->getName() << endl;
 
+    r.fige();
+
+    r.repartir();
 
     return 0;
 }

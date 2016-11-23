@@ -12,6 +12,7 @@ class EnChargeFacePlot : public EtatRobot{
 		static EnChargeFacePlot& Instance();
         EtatRobot* saisir(){throw ("Action ompossible dans cet état");};
         EtatRobot* fige(){return &Fige::Instance();};
+        EtatRobot* repartir(){throw ("Action impossible dans cet état");};
 };
 
 #endif
