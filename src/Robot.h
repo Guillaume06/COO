@@ -17,9 +17,12 @@ class Robot{
 
     public :
 
+        void setEtat(EtatRobot* e);
+        EtatRobot* getEtat();
+        Robot();
         void saisir(Objet obj){
             try{
-                *etat = etat->saisir();
+                etat = etat->saisir();
                 *o = obj;
             }catch(const std::exception& ex){
                 cout << "Action impossible dans cet état" << endl;

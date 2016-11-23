@@ -1,8 +1,16 @@
-#include"AVideFacePlot.h"
-#include "EtatRobot.h"
-#include "EnRoute.h"
+#include "AVideFacePlot.h"
+#include "EnChargeFacePlot.h"
+#include "Fige.h"
 
-AVideFacePlot instance = *(new AVideFacePlot());
-        static AVideFacePlot getInstance(){
-            return instance;
-        }
+
+
+AVideFacePlot AVideFacePlot::instance=AVideFacePlot();
+
+AVideFacePlot& AVideFacePlot::Instance(){
+	return instance;
+}
+
+
+AVideFacePlot::AVideFacePlot(){
+	this->setName("AVideFacePlot");
+}
