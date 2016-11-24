@@ -48,6 +48,10 @@ void Robot::fige(){
     }
 }
 
+void Robot::afficherEtat(){
+    observateur->notify(this);
+}
+
 void Robot::repartir(){
     try{
 	    etat ->repartir();

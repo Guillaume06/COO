@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: bin/Observateur.o bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
-	$(LINK_CXX) bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o bin/Observateur.o -o $(EXE_NAME)
+Main: bin/Textuel.o bin/Afficheur.o bin/Observateur.o bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
+	$(LINK_CXX) bin/Textuel.o bin/Afficheur.o bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o bin/Observateur.o -o $(EXE_NAME)
 
 bin/Main.o: src/Main.cpp
 	$(CXX)  src/Main.cpp -o bin/Main.o
@@ -66,6 +66,14 @@ bin/Objet.o: src/Objet.cpp src/Objet.h
 
 bin/Observateur.o: src/Observateur.cpp src/Observateur.h
 	$(CXX)  src/Observateur.cpp -o bin/Observateur.o
+
+bin/Afficheur.o: src/Afficheur.cpp src/Afficheur.h
+	$(CXX)  src/Afficheur.cpp -o bin/Afficheur.o
+
+bin/Textuel.o: src/Textuel.cpp src/Textuel.h
+	$(CXX)  src/Textuel.cpp -o bin/Textuel.o
+
+	
 
 
 # FOR TEMPLATE FILES

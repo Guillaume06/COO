@@ -18,6 +18,7 @@ class Robot{
 
     public :
 
+        void afficherEtat();
         void setEtat(EtatRobot* e);
         void setObservateur(Observateur* o);
         EtatRobot* getEtat();

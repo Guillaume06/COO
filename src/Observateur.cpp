@@ -1,10 +1,10 @@
 #include "Observateur.h"
 #include "Robot.h"
 
-Observateur::Observateur(){
-
+Observateur::Observateur(Afficheur* aff){
+	afficheur = aff;
 }
 
 void Observateur::notify(Robot* r){
-	cout << r->getEtat()->getName() << endl;
+	afficheur->notify(r);
 }
