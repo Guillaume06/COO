@@ -61,7 +61,7 @@ void Robot::fige(){
     }
 }
 
-void Robot::afficherEtat(){
+void Robot::afficher(){
     notifyAll();
 }
 

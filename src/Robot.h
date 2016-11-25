@@ -20,7 +20,7 @@ class Robot{
 
     public :
 
-        void afficherEtat();
+        void afficher();
         void setEtat(EtatRobot* e);
         void addObservateur(Observateur* o);
         EtatRobot* getEtat();
