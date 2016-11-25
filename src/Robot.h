@@ -1,6 +1,7 @@
 #include "Objet.h"
 #include "EtatRobot.h"
 #include <iostream>
+#include <vector>
 
 #ifndef ROBOT_H
 #define ROBOT_H
@@ -14,17 +15,18 @@ class Robot{
         EtatRobot*  etat;
         EtatRobot*  save;
         string      direction;
-        Observateur* observateur;
+        vector<Observateur*> observateur;
+        void notifyAll();
 
     public :
 
         void afficherEtat();
         void setEtat(EtatRobot* e);
-        void setObservateur(Observateur* o);
+        void addObservateur(Observateur* o);
         EtatRobot* getEtat();
         EtatRobot* setSave();
         EtatRobot* getSave();
-        Robot(Observateur* obs);
+        Robot(vector<Observateur*> obs);
         void saisir(Objet o);
         void fige();
         void repartir();

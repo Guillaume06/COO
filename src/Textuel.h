@@ -7,7 +7,8 @@ class Textuel : public Afficheur{
 	public : 
 		Textuel();
 		void notify(Robot* r){
-			cout << r->getEtat()->getName() << endl;
+			cout << "Affichage : " << endl;
+			cout << "\tEtat : "+r->getEtat()->getName() << endl;
 		}
 };
 

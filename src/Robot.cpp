@@ -1,10 +1,18 @@
 #include "Robot.h"
 #include "AVide.h"
 #include "Observateur.h"
+using namespace std;
 
-Robot::Robot(Observateur* obs){
+void Robot::notifyAll(){
+    for (unsigned int i = 0; i < observateur.size(); i++){
+        observateur.at(i)->notify(this);
+    }
+}
+
+Robot::Robot(vector<Observateur*> obs){
 	etat = &AVide::Instance();
 	observateur = obs;
+    cout << "Robot créé, état initial : AVide" << endl;
 }
 
 void Robot::setEtat(EtatRobot* e){
@@ -23,41 +31,48 @@ EtatRobot* Robot::setSave(){
 	return save;
 }
 
-void Robot::setObservateur(Observateur* obs){
-	observateur = obs; 
+void Robot::addObservateur(Observateur* obs){
+	observateur.push_back(obs); 
+    cout << "Observateur ajouté" << endl;
 }
 
 void Robot::saisir(Objet obj){
     try{
+        cout << "Action : " << endl;
+        cout << "\tSaisir" << endl;
         etat    = etat->saisir();
         *o      = obj;
-        observateur->notify(this);
-    }catch(const std::exception& ex){
-        cout << "Action impossible dans cet état" << endl;
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
 }
 
 void Robot::fige(){
     try{
+        cout << "Action : " << endl;
+        cout << "\tFige" << endl;
         EtatRobot* tmp = etat->fige();
         save = etat;
         etat = tmp;
-        observateur->notify(this);
-    }catch(const std::exception& ex){
-        cout << "Action impossible dans cet état" << endl;
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
 }
 
 void Robot::afficherEtat(){
-    observateur->notify(this);
+    notifyAll();
 }
 
 void Robot::repartir(){
     try{
+        cout << "Action : " << endl;
+        cout << "\tRepartir" << endl;
 	    etat ->repartir();
         *etat = *save;
-        observateur->notify(this);
-    }catch(const std::exception& ex){
-        cout << "Action impossible dans cet état" << endl;
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
 }
