@@ -41,14 +41,14 @@ void Robot::saisir(Objet obj){
         cout << "Action : " << endl;
         cout << "\tSaisir" << endl;
         etat    = etat->saisir();
-        *o      = obj;
+        o      = obj;
         notifyAll();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
 }
 
-void Robot::fige(){
+void Robot::figer(){
     try{
         cout << "Action : " << endl;
         cout << "\tFige" << endl;

@@ -17,8 +17,8 @@ int main(){
     cout << "Etat mis manuellement à AVideFacePlot" << endl;
     r.setEtat(&e);
     r.saisir(o);
-    r.fige();
-    r.fige();
+    r.figer();
+    r.figer();
     r.repartir();
 
     return 0;

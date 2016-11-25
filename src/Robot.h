@@ -1,17 +1,20 @@
+
+#ifndef ROBOT_H
+#define ROBOT_H
 #include "Objet.h"
 #include "EtatRobot.h"
 #include <iostream>
 #include <vector>
-
-#ifndef ROBOT_H
-#define ROBOT_H
+#include "Plot.h"
+#include "Position.h"
 
 using namespace std;
 class Observateur;
 class Robot{
 
     private : 
-        Objet*      o;
+        Position p;
+        Objet      o;
         EtatRobot*  etat;
         EtatRobot*  save;
         string      direction;
@@ -28,8 +31,12 @@ class Robot{
         EtatRobot* getSave();
         Robot(vector<Observateur*> obs);
         void saisir(Objet o);
-        void fige();
+        void figer();
         void repartir();
+        void avancer(int x, int y);
+        void tourner(string direction);
+        int peser();
+        void rencontretPlot(Plot p);
 
 };
 
