@@ -9,7 +9,7 @@
 #you can define as many as variable you like to be used as command, as pathes, etc, they are just MACRO for the remainder of the Makefile
 
 #example name of the executable to generate
-EXE_NAME=bin/COO
+EXE_NAME=COO
 
 #extra header file pathes (if empty, please add '.')
 EXTRA_HEADER_PATH=.
@@ -31,53 +31,53 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: bin/Position.o bin/Plot.o bin/Textuel.o bin/Afficheur.o bin/Observateur.o bin/Main.o bin/Objet.o bin/Robot.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o
-	$(LINK_CXX) bin/Position.o bin/Plot.o bin/Textuel.o bin/Afficheur.o bin/Main.o bin/Robot.o bin/Objet.o bin/Fige.o bin/EtatRobot.o bin/AVideFacePlot.o bin/EnCharge.o bin/EnChargeFacePlot.o bin/EnRoute.o bin/AVide.o bin/Observateur.o -o $(EXE_NAME)
+Main: Position.o Plot.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
+	$(LINK_CXX) Position.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
 
-bin/Main.o: src/Main.cpp
-	$(CXX)  src/Main.cpp -o bin/Main.o
+Main.o: Main.cpp
+	$(CXX)  Main.cpp -o Main.o
 
-bin/AVideFacePlot.o: src/AVideFacePlot.cpp src/AVideFacePlot.h
-	$(CXX)  src/AVideFacePlot.cpp -o bin/AVideFacePlot.o
+AVideFacePlot.o: AVideFacePlot.cpp AVideFacePlot.h
+	$(CXX)  AVideFacePlot.cpp -o AVideFacePlot.o
 
-bin/EnCharge.o: src/EnCharge.cpp src/EnCharge.h
-	$(CXX)  src/EnCharge.cpp -o bin/EnCharge.o
+EnCharge.o: EnCharge.cpp EnCharge.h
+	$(CXX)  EnCharge.cpp -o EnCharge.o
 
-bin/AVide.o: src/AVide.cpp src/AVide.h
-	$(CXX)  src/AVide.cpp -o bin/AVide.o
+AVide.o: AVide.cpp AVide.h
+	$(CXX)  AVide.cpp -o AVide.o
 
-bin/EnChargeFacePlot.o: src/EnChargeFacePlot.cpp src/EnChargeFacePlot.h
-	$(CXX)  src/EnChargeFacePlot.cpp -o bin/EnChargeFacePlot.o
+EnChargeFacePlot.o: EnChargeFacePlot.cpp EnChargeFacePlot.h
+	$(CXX)  EnChargeFacePlot.cpp -o EnChargeFacePlot.o
 
-bin/EnRoute.o: src/EnRoute.cpp src/EnRoute.h
-	$(CXX)  src/EnRoute.cpp -o bin/EnRoute.o
+EnRoute.o: EnRoute.cpp EnRoute.h
+	$(CXX)  EnRoute.cpp -o EnRoute.o
 
-bin/EtatRobot.o: src/EtatRobot.cpp src/EtatRobot.h
-	$(CXX)  src/EtatRobot.cpp -o bin/EtatRobot.o
+EtatRobot.o: EtatRobot.cpp EtatRobot.h
+	$(CXX)  EtatRobot.cpp -o EtatRobot.o
 
-bin/Fige.o: src/Fige.cpp src/Fige.h
-	$(CXX)  src/Fige.cpp -o bin/Fige.o
+Fige.o: Fige.cpp Fige.h
+	$(CXX)  Fige.cpp -o Fige.o
 
-bin/Robot.o: src/Robot.cpp src/Robot.h
-	$(CXX)  src/Robot.cpp -o bin/Robot.o
+Robot.o: Robot.cpp Robot.h
+	$(CXX)  Robot.cpp -o Robot.o
 
-bin/Objet.o: src/Objet.cpp src/Objet.h
-	$(CXX)  src/Objet.cpp -o bin/Objet.o
+Objet.o: Objet.cpp Objet.h
+	$(CXX)  Objet.cpp -o Objet.o
 
-bin/Observateur.o: src/Observateur.cpp src/Observateur.h
-	$(CXX)  src/Observateur.cpp -o bin/Observateur.o
+Observateur.o: Observateur.cpp Observateur.h
+	$(CXX)  Observateur.cpp -o Observateur.o
 
-bin/Afficheur.o: src/Afficheur.cpp src/Afficheur.h
-	$(CXX)  src/Afficheur.cpp -o bin/Afficheur.o
+Afficheur.o: Afficheur.cpp Afficheur.h
+	$(CXX)  Afficheur.cpp -o Afficheur.o
 
-bin/Textuel.o: src/Textuel.cpp src/Textuel.h
-	$(CXX)  src/Textuel.cpp -o bin/Textuel.o
+Textuel.o: Textuel.cpp Textuel.h
+	$(CXX)  Textuel.cpp -o Textuel.o
 
-bin/Plot.o: src/Plot.cpp src/Plot.h
-	$(CXX)  src/Plot.cpp -o bin/Plot.o	
+Plot.o: Plot.cpp Plot.h
+	$(CXX)  Plot.cpp -o Plot.o	
 
-bin/Position.o: src/Position.cpp src/Position.h
-	$(CXX)  src/Position.cpp -o bin/Position.o	
+Position.o: Position.cpp Position.h
+	$(CXX)  Position.cpp -o Position.o	
 
 
 # FOR TEMPLATE FILES
@@ -91,7 +91,7 @@ bin/Position.o: src/Position.cpp src/Position.h
 # Note that in the Makefile shown above, the .h files are listed, but there are no references in their corresponding commands. This is because the .h files are referred within the corresponding .c files through the #include "file.h". If you do not explicitly include these in your Makefile, your program will not be updated if you make a change to your header (.h) files.
 
 clean:
-	-rm -f bin/*.o bin/COO *.ps \#* *~
+	-rm -f *.o COO *.ps \#* *~
 	-rm -f *.stackdump core
 	-rm -f $(EXE_NAME)
 	-make extra_clean

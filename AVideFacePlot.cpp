@@ -1,5 +1,4 @@
 #include "AVideFacePlot.h"
-#include "EnChargeFacePlot.h"
 #include "Fige.h"
 
 
@@ -14,3 +13,8 @@ AVideFacePlot& AVideFacePlot::Instance(){
 AVideFacePlot::AVideFacePlot(){
 	this->setName("AVideFacePlot");
 }
+
+EtatRobot* EtatRobot::getAVideFacePlotInstance(){
+    return &AVideFacePlot::Instance();
+}
+

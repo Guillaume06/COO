@@ -10,3 +10,6 @@ AVide& AVide::Instance(){
 AVide::AVide(){
 	this->setName("AVide");
 }
+EtatRobot* EtatRobot::getAVideInstance(){
+    return &AVide::Instance();
+}

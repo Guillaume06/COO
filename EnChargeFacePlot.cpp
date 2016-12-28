@@ -1,3 +1,4 @@
+
 #include "EnChargeFacePlot.h"
 #include "Fige.h"
 
@@ -12,3 +13,8 @@ EnChargeFacePlot::EnChargeFacePlot(){
 	this->setName("EnChargeFacePlot");
 }
 
+
+
+EtatRobot* EtatRobot::getEnChargeFacePlotInstance(){
+    return &EnChargeFacePlot::Instance();
+}

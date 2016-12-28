@@ -17,18 +17,20 @@ class Robot{
         Objet      o;
         EtatRobot*  etat;
         EtatRobot*  save;
-        string      direction;
+        string      direction="Droite";
+        string      directionInit="Droite";
         vector<Observateur*> observateur;
-        void notifyAll();
 
     public :
-
+        void notifyAll();
         void afficher();
         void setEtat(EtatRobot* e);
         void addObservateur(Observateur* o);
         EtatRobot* getEtat();
         EtatRobot* setSave();
         EtatRobot* getSave();
+        string getDirection(){return direction;}
+        string getDirectionInitiale(){return directionInit;}
         Robot(vector<Observateur*> obs);
         void saisir(Objet o);
         void figer();
@@ -36,7 +38,8 @@ class Robot{
         void avancer(int x, int y);
         void tourner(string direction);
         int peser();
-        void rencontretPlot(Plot p);
+        void poser();
+        void rencontrerPlot(Plot p);
 
 };
 

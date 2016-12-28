@@ -9,6 +9,8 @@ class Textuel : public Afficheur{
 		void notify(Robot* r){
 			cout << "Affichage : " << endl;
 			cout << "\tEtat : "+r->getEtat()->getName() << endl;
+			cout << "\tDirection : "+r->getDirection() << endl;
+			cout << "\tDirection Initiale : "+r->getDirectionInitiale() << endl;
 		}
 };
 
