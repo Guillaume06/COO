@@ -2,14 +2,14 @@
 #define POSITION_H
 class Position{
 	private :
-		int x;
-		int y;
+		int x = 0;
+		int y = 0;
 
 	public : 
-		void setx(int x);
-		void sety(int y);
-		int getx();
-		int gety();
+		void setX(int x){this->x = x;};
+		void setY(int y){this->y = y;};
+		int getX(){return x;};
+		int getY(){return y;};
 };
 
 #endif

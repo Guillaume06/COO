@@ -3,14 +3,17 @@
 #include "Robot.h"
 #include "Afficheur.h"
 #include <iostream>
+#include <string>
 class Textuel : public Afficheur{
 	public : 
 		Textuel();
 		void notify(Robot* r){
 			cout << "Affichage : " << endl;
-			cout << "\tEtat : "+r->getEtat()->getName() << endl;
-			cout << "\tDirection : "+r->getDirection() << endl;
-			cout << "\tDirection Initiale : "+r->getDirectionInitiale() << endl;
+			cout << "\t Etat : "+r->getEtat()->getName() << endl;
+			cout << "\t Direction : "+r->getDirection() << endl;
+			cout << "\t Direction Initiale : "+r->getDirectionInitiale() << endl;
+			cout << "\t X : " + std::to_string(r->getX());
+			cout << ", Y : " + std::to_string(r->getX()) << endl;
 		}
 };
 

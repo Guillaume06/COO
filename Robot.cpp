@@ -43,7 +43,7 @@ void Robot::saisir(Objet obj){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tSaisir" << endl;
+        cout << "\t Saisir" << endl;
         etat    = etat->saisir();
         o      = obj;
         notifyAll();
@@ -57,7 +57,7 @@ void Robot::figer(){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tFige" << endl;
+        cout << "\t Fige" << endl;
         EtatRobot* tmp = etat->figer();
         save = etat;
         etat = tmp;
@@ -76,7 +76,7 @@ void Robot::repartir(){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tRepartir" << endl;
+        cout << "\t Repartir" << endl;
 	    etat ->repartir();
         etat = save;
         notifyAll();
@@ -90,9 +90,10 @@ void Robot::rencontrerPlot(Plot p){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tRencontrerPlot" << endl;
+        cout << "\t RencontrerPlot" << endl;
 	    etat = etat ->rencontrerPlot();
 	    directionInit = direction;
+	    plot = p;
         notifyAll();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
@@ -104,7 +105,7 @@ void Robot::poser(){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tPoser" << endl;
+        cout << "\t Poser" << endl;
 	    etat = etat ->poser();
         notifyAll();
     }catch(char const* ex){
@@ -119,7 +120,7 @@ void Robot::tourner(string direction){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\tTourner" << endl;
+        cout << "\t Tourner" << endl;
             EtatRobot* tmp = etat;
 	    etat = etat ->tourner();
 	    this->direction = direction;
@@ -136,4 +137,51 @@ void Robot::tourner(string direction){
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
+}
+
+void Robot::avancer(int x, int y){
+    try{
+        cout << "*******************************************" << endl;
+        notifyAll();
+        cout << "Action : " << endl;
+        cout << "\t Avancer" << endl;
+	    etat = etat ->avancer();
+	    p.setX(x);
+	    p.setY(y);
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
+    }
+}
+
+int Robot::evaluerPlot(){
+    try{
+        cout << "*******************************************" << endl;
+        notifyAll();
+        cout << "Action : " << endl;
+        cout << "\t EvaluerPlot" << endl;
+	    etat = etat ->evaluerPlot();
+	    cout << "Hauteur du plot : " + std::to_string(plot.getHauteur()) << endl;
+	    return plot.getHauteur();
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
+    }
+    return 0;
+}
+
+int Robot::peser(){
+    try{
+        cout << "*******************************************" << endl;
+        notifyAll();
+        cout << "Action : " << endl;
+        cout << "\t Peser" << endl;
+	    etat = etat ->peser();
+	    cout << "Poids de l'objet : " + std::to_string(o.getPoids()) << endl;
+	    return o.getPoids();
+        notifyAll();
+    }catch(char const* ex){
+        cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
+    }
+    return 0;
 }

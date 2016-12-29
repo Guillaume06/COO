@@ -4,8 +4,9 @@
 
 class Objet{
 	private : 
-		int poids;
+		int poids = 0;
 	public :
+		Objet(int poids);
 		Objet();
 		int getPoids();
 };

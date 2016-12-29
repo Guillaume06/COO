@@ -8,16 +8,19 @@
 using namespace std;
 
 int main(){
-    Plot p = Plot();
+    Plot p = Plot(10);
 	Textuel text= Textuel();
     vector<Observateur*> obsList;
 	Observateur obs = Observateur(&text);
     obsList.push_back(&obs);
     Robot r = Robot(obsList);
     r.notifyAll();
-    Objet o = Objet();
+    Objet o = Objet(10);
+    r.avancer(1, 1);
     r.rencontrerPlot(p);
+    r.evaluerPlot();
     r.saisir(o);
+    r.peser();
     r.tourner("Gauche");
     r.rencontrerPlot(p);
     r.poser();
