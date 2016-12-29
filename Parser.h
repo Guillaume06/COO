@@ -6,7 +6,7 @@
 
 using namespace std;
 
-enum CommandName {FIGER, REPARTIR, AVANCER, TOURNER, EVALUERPLOT, SAISIR, POSER, PESER, RENCONTRERPLOT};
+enum CommandName {DEFAIRE, FIGER, REPARTIR, AVANCER, TOURNER, EVALUERPLOT, SAISIR, POSER, PESER, RENCONTRERPLOT};
 
 typedef struct Command{
     CommandName command;

@@ -9,6 +9,7 @@ using namespace std;
 
 Parser::Parser(string filename){
     // Map init
+    stringToCommand.insert(pair<string, CommandName>("DEFAIRE", DEFAIRE));
     stringToCommand.insert(pair<string, CommandName>("FIGER", FIGER));
     stringToCommand.insert(pair<string, CommandName>("REPARTIR", REPARTIR));
     stringToCommand.insert(pair<string, CommandName>("AVANCER", AVANCER));
@@ -20,6 +21,7 @@ Parser::Parser(string filename){
     stringToCommand.insert(pair<string, CommandName>("RENCONTRERPLOT", RENCONTRERPLOT));
 
     // Second Map Init
+    commandToString.insert(pair<CommandName, string>(DEFAIRE, "DEFAIRE"));
     commandToString.insert(pair<CommandName, string>(FIGER, "FIGER"));
     commandToString.insert(pair<CommandName, string>(REPARTIR, "REPARTIR"));
     commandToString.insert(pair<CommandName, string>(AVANCER, "AVANCER"));
