@@ -8,6 +8,30 @@
 using namespace std;
 
 Parser::Parser(string filename){
+    // Map init
+    stringToCommand.insert(pair<string, CommandName>("FIGER", FIGER));
+    stringToCommand.insert(pair<string, CommandName>("REPARTIR", REPARTIR));
+    stringToCommand.insert(pair<string, CommandName>("AVANCER", AVANCER));
+    stringToCommand.insert(pair<string, CommandName>("TOURNER", TOURNER));
+    stringToCommand.insert(pair<string, CommandName>("EVALUERPLOT", EVALUERPLOT));
+    stringToCommand.insert(pair<string, CommandName>("SAISIR", SAISIR));
+    stringToCommand.insert(pair<string, CommandName>("POSER", POSER));
+    stringToCommand.insert(pair<string, CommandName>("PESER", PESER));
+    stringToCommand.insert(pair<string, CommandName>("RENCONTRERPLOT", RENCONTRERPLOT));
+
+    // Second Map Init
+    commandToString.insert(pair<CommandName, string>(FIGER, "FIGER"));
+    commandToString.insert(pair<CommandName, string>(REPARTIR, "REPARTIR"));
+    commandToString.insert(pair<CommandName, string>(AVANCER, "AVANCER"));
+    commandToString.insert(pair<CommandName, string>(TOURNER, "TOURNER"));
+    commandToString.insert(pair<CommandName, string>(EVALUERPLOT, "EVALUERPLOT"));
+    commandToString.insert(pair<CommandName, string>(SAISIR, "SAISIR"));
+    commandToString.insert(pair<CommandName, string>(POSER, "POSER"));
+    commandToString.insert(pair<CommandName, string>(PESER, "PESER"));
+    commandToString.insert(pair<CommandName, string>(RENCONTRERPLOT, "RENCONTRERPLOT"));
+
+
+
     cout << "Parsing command file " + filename << endl;
     Command tmp;
     vector<int> parameters;
@@ -38,7 +62,7 @@ Parser::Parser(string filename){
                 parameters.push_back(stoi(temp));
             }
         }
-        tmp.command = command;
+        tmp.command = stringToCommand.find(command)->second;
         tmp.parameters = parameters;
         commands.push_back(tmp);
         command = "";
@@ -51,7 +75,7 @@ Parser::Parser(string filename){
 
 void Parser::printCommands(){
     for(unsigned int i = 0; i < commands.size(); i++){
-       cout << "Command : " + commands[i].command;
+       cout << "Command : " + commandToString.find(commands[i].command)->second;
        cout << ", Parameters : ";
        for(unsigned int j = 0; j < commands[i].parameters.size(); j++){
               cout << to_string(commands[i].parameters[j]) + " ";
