@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: Position.o Plot.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
-	$(LINK_CXX) Position.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
+Main: Position.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
+	$(LINK_CXX) Position.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
 
 Main.o: Main.cpp
 	$(CXX)  Main.cpp -o Main.o
@@ -77,7 +77,10 @@ Plot.o: Plot.cpp Plot.h
 	$(CXX)  Plot.cpp -o Plot.o	
 
 Position.o: Position.cpp Position.h
-	$(CXX)  Position.cpp -o Position.o	
+	$(CXX)  Position.cpp -o Position.o
+
+Parser.o: Parser.cpp Parser.h
+	$(CXX)  Parser.cpp -o Parser.o
 
 
 # FOR TEMPLATE FILES

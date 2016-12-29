@@ -4,10 +4,12 @@
 #include "Observateur.h"
 #include "Textuel.h"
 #include "Plot.h"
+#include "Parser.h"
 #include <iostream>
 using namespace std;
 
 int main(){
+/*
     Plot p = Plot(10);
 	Textuel text= Textuel();
     vector<Observateur*> obsList;
@@ -25,6 +27,9 @@ int main(){
     r.rencontrerPlot(p);
     r.poser();
     r.tourner("Droite");
+    */
+    Parser p("Data.txt");
+    p.printCommands();
 
     return 0;
 }
