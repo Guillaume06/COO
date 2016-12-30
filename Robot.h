@@ -24,6 +24,7 @@ class Robot{
         vector<Observateur*>    observateur;
 
     public :
+                    Robot();
                     Robot(vector<Observateur*> obs);
         int         getX(){return p.getX();}
         int         getY(){return p.getY();}

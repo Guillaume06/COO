@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: Position.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
-	$(LINK_CXX) Position.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
+Main: Position.o Avancer.o Command.o Command_Robot.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
+	$(LINK_CXX) Position.o Avancer.o Command_Robot.o Command.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
 
 Main.o: Main.cpp
 	$(CXX)  Main.cpp -o Main.o
@@ -81,6 +81,15 @@ Position.o: Position.cpp Position.h
 
 Parser.o: Parser.cpp Parser.h
 	$(CXX)  Parser.cpp -o Parser.o
+
+Command.o: Command.cpp Command.h
+	$(CXX)  Command.cpp -o Command.o
+
+Command_Robot.o: Command_Robot.cpp Command_Robot.h
+	$(CXX)  Command_Robot.cpp -o Command_Robot.o
+
+Avancer.o: Avancer.cpp Avancer.h
+	$(CXX)  Avancer.cpp -o Avancer.o
 
 
 # FOR TEMPLATE FILES

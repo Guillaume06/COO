@@ -1,6 +1,8 @@
 #ifndef ETAT_ROBOT_H
 #define ETAT_ROBOT_H
 #include <string>
+
+
 using namespace std;
 class EtatRobot {
 	private : 

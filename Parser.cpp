@@ -4,10 +4,21 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include "Avancer.h"
+#include "Command.h"
 
 using namespace std;
 
-Parser::Parser(string filename){
+void Parser::start(){
+    for (unsigned int i = 0; i < commands.size(); i++){
+        Command::returnCommand(commands[i], r)->execute();
+    }
+}
+
+Parser::Parser(string filename, vector<Observateur*> obs){
+
+    r = new Robot(obs);
+
     // Map init
     stringToCommand.insert(pair<string, CommandName>("DEFAIRE", DEFAIRE));
     stringToCommand.insert(pair<string, CommandName>("FIGER", FIGER));
@@ -34,8 +45,9 @@ Parser::Parser(string filename){
 
 
 
+
     cout << "Parsing command file " + filename << endl;
-    Command tmp;
+    CommandStruct tmp;
     vector<int> parameters;
     bool commandFind = false;
     string temp = "";

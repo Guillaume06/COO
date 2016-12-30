@@ -11,6 +11,9 @@ void Robot::notifyAll(){
     }
 }
 
+Robot::Robot(){
+}
+
 Robot::Robot(vector<Observateur*> obs){
 	etat = &AVide::Instance();
 	observateur = obs;

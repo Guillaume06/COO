@@ -3,23 +3,26 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "Robot.h"
 
 using namespace std;
 
 enum CommandName {DEFAIRE, FIGER, REPARTIR, AVANCER, TOURNER, EVALUERPLOT, SAISIR, POSER, PESER, RENCONTRERPLOT};
 
-typedef struct Command{
+typedef struct CommandStruct{
     CommandName command;
     vector<int> parameters;
-}Command;
+}CommandStruct;
 
 class Parser{
     private :
+        Robot* r;
         map<std::string, CommandName> stringToCommand;
         map<CommandName, std::string> commandToString;
-        vector<Command> commands;
+        vector<CommandStruct> commands;
     public :
-        Parser(string filename);
+        void start();
+        Parser(string filename, vector<Observateur*> obs);
         void printCommands();
 };
 
