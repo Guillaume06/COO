@@ -17,6 +17,8 @@ class EtatRobot {
         EtatRobot* getAVideFacePlotInstance();
         EtatRobot* getEnChargeFacePlotInstance();
         EtatRobot* getEnChargeInstance();
+        EtatRobot* getFigeInstance();
+        EtatRobot* getRepartireInstance();
         virtual EtatRobot* saisir()=0;
         virtual EtatRobot* figer()=0;
         virtual EtatRobot* repartir()=0;

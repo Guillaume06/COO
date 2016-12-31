@@ -165,8 +165,8 @@ int Robot::evaluerPlot(){
         cout << "\t EvaluerPlot" << endl;
 	    etat = etat ->evaluerPlot();
 	    cout << "Hauteur du plot : " + std::to_string(plot.getHauteur()) << endl;
+	    notifyAll();
 	    return plot.getHauteur();
-        notifyAll();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -181,8 +181,8 @@ int Robot::peser(){
         cout << "\t Peser" << endl;
 	    etat = etat ->peser();
 	    cout << "Poids de l'objet : " + std::to_string(o.getPoids()) << endl;
+	    notifyAll();
 	    return o.getPoids();
-        notifyAll();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }

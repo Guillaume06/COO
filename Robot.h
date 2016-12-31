@@ -19,8 +19,8 @@ class Robot{
         Objet                   o;
         EtatRobot*              etat;
         EtatRobot*              save;
-        string                  direction       = "Init";
-        string                  directionInit   = "Init2";
+        string                  direction       = "Droite";
+        string                  directionInit   = "Init";
         vector<Observateur*>    observateur;
 
     public :

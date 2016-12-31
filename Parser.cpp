@@ -48,7 +48,7 @@ Parser::Parser(string filename, vector<Observateur*> obs){
 
     cout << "Parsing command file " + filename << endl;
     CommandStruct tmp;
-    vector<int> parameters;
+    vector<string> parameters;
     bool commandFind = false;
     string temp = "";
     string command = "";
@@ -65,16 +65,14 @@ Parser::Parser(string filename, vector<Observateur*> obs){
                 temp = "";
                 commandFind = true;
             }else{
-                parameters.push_back(stoi(temp));
+                parameters.push_back(temp);
                 temp = "";
             }
         }
         if (commandFind == false){
             command = temp;
         }else{
-            if (command.compare("SAISIR") != 0){
-                parameters.push_back(stoi(temp));
-            }
+            parameters.push_back(temp);
         }
         tmp.command = stringToCommand.find(command)->second;
         tmp.parameters = parameters;
@@ -92,7 +90,7 @@ void Parser::printCommands(){
        cout << "Command : " + commandToString.find(commands[i].command)->second;
        cout << ", Parameters : ";
        for(unsigned int j = 0; j < commands[i].parameters.size(); j++){
-              cout << to_string(commands[i].parameters[j]) + " ";
+              cout << commands[i].parameters[j] + " ";
        }
        cout << endl;
     }

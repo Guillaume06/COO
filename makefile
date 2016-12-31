@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: Position.o Avancer.o Command.o Command_Robot.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
-	$(LINK_CXX) Position.o Avancer.o Command_Robot.o Command.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
+Main: Position.o Avancer.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Command.o Command_Robot.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
+	$(LINK_CXX) Position.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Avancer.o Command_Robot.o Command.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
 
 Main.o: Main.cpp
 	$(CXX)  Main.cpp -o Main.o
@@ -90,6 +90,31 @@ Command_Robot.o: Command_Robot.cpp Command_Robot.h
 
 Avancer.o: Avancer.cpp Avancer.h
 	$(CXX)  Avancer.cpp -o Avancer.o
+
+Tourner.o: Tourner.cpp Tourner.h
+	$(CXX)  Tourner.cpp -o Tourner.o
+
+RencontrerPlot.o: RencontrerPlot.cpp RencontrerPlot.h
+	$(CXX)  RencontrerPlot.cpp -o RencontrerPlot.o
+
+EvaluerPlot.o: EvaluerPlot.cpp EvaluerPlot.h
+	$(CXX)  EvaluerPlot.cpp -o EvaluerPlot.o
+
+Poser.o: Poser.cpp Poser.h
+	$(CXX)  Poser.cpp -o Poser.o
+
+Saisir.o: Saisir.cpp Saisir.h
+	$(CXX)  Saisir.cpp -o Saisir.o
+
+Peser.o: Peser.cpp Peser.h
+	$(CXX)  Peser.cpp -o Peser.o
+
+Figer.o: Figer.cpp Figer.h
+	$(CXX)  Figer.cpp -o Figer.o
+
+Repartir.o: Repartir.cpp Repartir.h
+	$(CXX)  Repartir.cpp -o Repartir.o
+
 
 
 # FOR TEMPLATE FILES

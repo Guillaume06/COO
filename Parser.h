@@ -11,7 +11,7 @@ enum CommandName {DEFAIRE, FIGER, REPARTIR, AVANCER, TOURNER, EVALUERPLOT, SAISI
 
 typedef struct CommandStruct{
     CommandName command;
-    vector<int> parameters;
+    vector<string> parameters;
 }CommandStruct;
 
 class Parser{

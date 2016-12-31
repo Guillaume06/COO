@@ -6,6 +6,10 @@ Fige& Fige::Instance(){
 	return instance;
 }
 Fige::Fige(){
-	this->setName("Fige");
+	this->setName("Figer");
 }
 
+
+EtatRobot* EtatRobot::getFigeInstance(){
+    return &Fige::Instance();
+}

@@ -21,10 +21,10 @@ class EnCharge : public EnRoute{
         EtatRobot* peser()              {return &EnCharge::Instance();};
 
         EtatRobot* saisir()             {throw ("Action ompossible dans cet état");};
-        EtatRobot* figer()              {return &EnCharge::Instance();};
+        EtatRobot* figer()              {return &Fige::Instance();};
         EtatRobot* repartir()           {throw ("Action impossible dans cet état");};
         EtatRobot* changeStateMove(){return getEnChargeInstance();}
-        EtatRobot* changeStateMoveToInit(){return getEnChargeInstance();}
+        EtatRobot* changeStateMoveToInit(){return getEnChargeFacePlotInstance();}
 };
 
 #endif
