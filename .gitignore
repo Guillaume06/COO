@@ -8,3 +8,4 @@ Supprimerait .idea/modules.xml
 Supprimerait .idea/workspace.xml
 
 *.o
+.idea
