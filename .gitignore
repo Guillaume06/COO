@@ -6,3 +6,5 @@ Supprimerait .idea/copyright/
 Supprimerait .idea/misc.xml
 Supprimerait .idea/modules.xml
 Supprimerait .idea/workspace.xml
+
+*.o
