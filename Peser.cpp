@@ -9,4 +9,6 @@ void Peser::execute(){
 }
 
 void Peser::desexecute(){
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }
