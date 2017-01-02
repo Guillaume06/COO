@@ -6,6 +6,7 @@
 #include <vector>
 #include "Avancer.h"
 #include "Command.h"
+#include "CommandName.h"
 
 using namespace std;
 

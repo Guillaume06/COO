@@ -6,5 +6,10 @@ Avancer::Avancer(int x, int y, Robot* r){
     this-> y = y;
 }
 
-void Avancer::execute(){getRobot()->avancer(x, y);}
-void Avancer::desexecute(){}
+void Avancer::execute(){
+    getRobot()->avancer(x, y);
+}
+void Avancer::desexecute(){
+    Robot r = getRobot()->getRobot();
+    getRobot()->avancer(r.getX(), r.getY());
+}

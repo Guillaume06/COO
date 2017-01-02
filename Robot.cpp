@@ -3,6 +3,8 @@
 #include "Observateur.h"
 #include <typeinfo>
 #include <string>
+#include "CommandName.h"
+
 using namespace std;
 
 void Robot::notifyAll(){
@@ -43,6 +45,7 @@ void Robot::addObservateur(Observateur* obs){
 
 void Robot::saisir(Objet obj){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -50,6 +53,8 @@ void Robot::saisir(Objet obj){
         etat    = etat->saisir();
         o      = obj;
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(SAISIR);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -57,6 +62,7 @@ void Robot::saisir(Objet obj){
 
 void Robot::figer(){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -65,6 +71,8 @@ void Robot::figer(){
         save = etat;
         etat = tmp;
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(FIGER);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -76,6 +84,7 @@ void Robot::afficher(){
 
 void Robot::repartir(){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -83,6 +92,8 @@ void Robot::repartir(){
 	    etat ->repartir();
         etat = save;
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(REPARTIR);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -90,6 +101,7 @@ void Robot::repartir(){
 
 void Robot::rencontrerPlot(Plot p){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -98,6 +110,8 @@ void Robot::rencontrerPlot(Plot p){
 	    directionInit = direction;
 	    plot = p;
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(RENCONTRERPLOT);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -105,12 +119,15 @@ void Robot::rencontrerPlot(Plot p){
 
 void Robot::poser(){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
         cout << "\t Poser" << endl;
 	    etat = etat ->poser();
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(POSER);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -120,6 +137,7 @@ void Robot::poser(){
 void Robot::tourner(string direction){
 
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -137,6 +155,8 @@ void Robot::tourner(string direction){
 	        etat = etat->changeStateMove();
 	    }
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(TOURNER);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -144,6 +164,7 @@ void Robot::tourner(string direction){
 
 void Robot::avancer(int x, int y){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -152,6 +173,8 @@ void Robot::avancer(int x, int y){
 	    p.setX(x);
 	    p.setY(y);
         notifyAll();
+        saveState.push_back(r);
+        saveCommand.push_back(AVANCER);
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
     }
@@ -159,6 +182,7 @@ void Robot::avancer(int x, int y){
 
 int Robot::evaluerPlot(){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -166,6 +190,8 @@ int Robot::evaluerPlot(){
 	    etat = etat ->evaluerPlot();
 	    cout << "Hauteur du plot : " + std::to_string(plot.getHauteur()) << endl;
 	    notifyAll();
+	    saveState.push_back(r);
+	    saveCommand.push_back(EVALUERPLOT);
 	    return plot.getHauteur();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;
@@ -175,6 +201,7 @@ int Robot::evaluerPlot(){
 
 int Robot::peser(){
     try{
+        Robot r = *this;
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
@@ -182,6 +209,8 @@ int Robot::peser(){
 	    etat = etat ->peser();
 	    cout << "Poids de l'objet : " + std::to_string(o.getPoids()) << endl;
 	    notifyAll();
+	    saveState.push_back(r);
+	    saveCommand.push_back(PESER);
 	    return o.getPoids();
     }catch(char const* ex){
         cout << "******* ERREUR : Action impossible dans cet état *******" << endl;

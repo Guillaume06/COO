@@ -7,7 +7,6 @@
 
 using namespace std;
 
-enum CommandName {DEFAIRE, FIGER, REPARTIR, AVANCER, TOURNER, EVALUERPLOT, SAISIR, POSER, PESER, RENCONTRERPLOT};
 
 typedef struct CommandStruct{
     CommandName command;

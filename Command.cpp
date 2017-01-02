@@ -10,6 +10,7 @@
 #include "Peser.h"
 #include "Figer.h"
 #include "Repartir.h"
+#include "Defaire.h"
 
 
 Command* Command::returnCommand(CommandStruct c, Robot* r){
@@ -41,6 +42,8 @@ Command* Command::returnCommand(CommandStruct c, Robot* r){
        case REPARTIR :
             return new Repartir(r);
             break;
+       case DEFAIRE :
+            return new Defaire(r);
 
         default :
             return nullptr;

@@ -31,8 +31,8 @@ LINK_CXX = g++
 # FOR NON TEMPLATE FILES
 
 
-Main: Position.o Avancer.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Command.o Command_Robot.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
-	$(LINK_CXX) Position.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Avancer.o Command_Robot.o Command.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
+Main: Position.o Avancer.o Defaire.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Command.o Command_Robot.o Plot.o Parser.o Textuel.o Afficheur.o Observateur.o Main.o Objet.o Robot.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o
+	$(LINK_CXX) Position.o Defaire.o Figer.o  Repartir.o Peser.o Saisir.o Poser.o EvaluerPlot.o RencontrerPlot.o Tourner.o Avancer.o Command_Robot.o Command.o Parser.o Plot.o Textuel.o Afficheur.o Main.o Robot.o Objet.o Fige.o EtatRobot.o AVideFacePlot.o EnCharge.o EnChargeFacePlot.o EnRoute.o AVide.o Observateur.o -o $(EXE_NAME)
 
 Main.o: Main.cpp
 	$(CXX)  Main.cpp -o Main.o
@@ -115,6 +115,8 @@ Figer.o: Figer.cpp Figer.h
 Repartir.o: Repartir.cpp Repartir.h
 	$(CXX)  Repartir.cpp -o Repartir.o
 
+Defaire.o: Defaire.cpp Defaire.h
+	$(CXX)  Defaire.cpp -o Defaire.o
 
 
 # FOR TEMPLATE FILES

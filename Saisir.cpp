@@ -10,4 +10,6 @@ void Saisir::execute(){
 }
 
 void Saisir::desexecute(){
+    Robot r = getRobot()->getRobot();
+    getRobot()->poser();
 }

@@ -10,4 +10,6 @@ void Tourner::execute(){
 }
 
 void Tourner::desexecute(){
+    Robot r = getRobot()->getRobot();
+    getRobot()->tourner(r.getDirection());
 }

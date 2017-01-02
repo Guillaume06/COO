@@ -9,4 +9,6 @@ void Poser::execute(){
 }
 
 void Poser::desexecute(){
+        Robot r = getRobot()->getRobot();
+        getRobot()->saisir(r.getObjet());
 }
