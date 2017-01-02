@@ -9,4 +9,6 @@ void EvaluerPlot::execute(){
 }
 
 void EvaluerPlot::desexecute(){
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }

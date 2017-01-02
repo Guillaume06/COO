@@ -32,6 +32,8 @@ class Robot{
         int         getCommandSize(){return saveCommand.size();}
         int         getRobotSize(){return saveState.size();}
         void        addCommand(CommandName c){saveCommand.push_back(c);}
+        void        deleteCommand(){saveCommand.pop_back();}
+        void        deleteState(){saveState.pop_back();}
 
         CommandName getCommand(){
             CommandName c = saveCommand[saveCommand.size()-1];

@@ -10,4 +10,6 @@ void RencontrerPlot::execute(){
 }
 
 void RencontrerPlot::desexecute(){
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }

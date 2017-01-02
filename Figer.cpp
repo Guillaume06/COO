@@ -11,4 +11,6 @@ void Figer::execute(){
 void Figer::desexecute(){
     Robot r = getRobot()->getRobot();
     getRobot()->repartir();
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }

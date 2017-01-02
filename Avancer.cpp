@@ -12,4 +12,6 @@ void Avancer::execute(){
 void Avancer::desexecute(){
     Robot r = getRobot()->getRobot();
     getRobot()->avancer(r.getX(), r.getY());
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }
