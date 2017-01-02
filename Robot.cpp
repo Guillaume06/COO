@@ -66,7 +66,7 @@ void Robot::figer(){
         cout << "*******************************************" << endl;
         notifyAll();
         cout << "Action : " << endl;
-        cout << "\t Fige" << endl;
+        cout << "\t Figer" << endl;
         EtatRobot* tmp = etat->figer();
         save = etat;
         etat = tmp;

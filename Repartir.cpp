@@ -9,4 +9,8 @@ void Repartir::execute(){
 }
 
 void Repartir::desexecute(){
+    Robot r = getRobot()->getRobot();
+    getRobot()->figer();
+    getRobot()->deleteCommand();
+    getRobot()->deleteState();
 }
