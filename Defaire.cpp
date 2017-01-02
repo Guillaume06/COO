@@ -19,7 +19,8 @@ Defaire::Defaire(Robot* r){
 void Defaire::execute(){
     cout << "*******************************************" << endl;
     cout << "DEFAIRE" << endl;
-    switch(getRobot()->getCommand()){
+    if (getRobot()->getCommandSize() > 0){
+        switch(getRobot()->getCommand()){
             case AVANCER :
                 Avancer(0, 0, getRobot()).desexecute();
                 break;
@@ -53,6 +54,9 @@ void Defaire::execute(){
             default :
                 break;
         }
+      }else{
+        cout << "Aucune commande à défaire" << endl;
+      }
       cout << "*******************************************" << endl;
 
 

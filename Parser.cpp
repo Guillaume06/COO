@@ -75,6 +75,10 @@ Parser::Parser(string filename, vector<Observateur*> obs){
         }else{
             parameters.push_back(temp);
         }
+        if ( stringToCommand.find(command) == stringToCommand.end() ) {
+            cout << "******* ERREUR : Commande non reconnue *******" << endl;
+            exit(1);
+        }
         tmp.command = stringToCommand.find(command)->second;
         tmp.parameters = parameters;
         commands.push_back(tmp);
