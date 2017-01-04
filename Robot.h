@@ -32,8 +32,8 @@ class Robot{
         int         getCommandSize(){return saveCommand.size();}
         int         getRobotSize(){return saveState.size();}
         void        addCommand(CommandName c){saveCommand.push_back(c);}
-        void        deleteCommand(){saveCommand.pop_back();}
-        void        deleteState(){saveState.pop_back();}
+        void        deleteCommand(){if (saveCommand.size() > 0) saveCommand.pop_back();}
+        void        deleteState(){if (saveState.size() > 0) saveState.pop_back();}
 
         CommandName getCommand(){
             CommandName c = saveCommand[saveCommand.size()-1];
@@ -58,6 +58,9 @@ class Robot{
         EtatRobot*  setSave();
         EtatRobot*  getSave();
         string      getDirection(){return direction;}
+        void        setDirection(string dir){direction = dir;}
+        string      getDirectionInit(){return directionInit;}
+        void        setDirectionInit(string dir){directionInit = dir;}
         string      getDirectionInitiale(){return directionInit;}
         void        saisir(Objet o);
         void        figer();

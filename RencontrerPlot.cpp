@@ -1,4 +1,5 @@
 #include "RencontrerPlot.h"
+#include "AVide.h"
 
 RencontrerPlot::RencontrerPlot(Plot plot, Robot* r){
     setRobot(r);
@@ -10,6 +11,9 @@ void RencontrerPlot::execute(){
 }
 
 void RencontrerPlot::desexecute(){
+    Robot r = getRobot()->getRobot();
+    getRobot()->setEtat(r.getEtat());
+    getRobot()->setDirectionInit(r.getDirectionInit());
     getRobot()->deleteCommand();
     getRobot()->deleteState();
 }
